@@ -4,6 +4,7 @@
     "pages/message/message",
     "pages/response/response",
     "pages/mine/mine",
+    "pages/professional/professional",
     "pages/createMessage/createMessage"
   ],
   "window": {
@@ -26,7 +27,7 @@
         "selectedIconPath": "/images/home_selected.png"
       },
       {
-        "pagePath": "pages/message/message",
+        "pagePath": "pages/professional/professional",
         "text": "招生专业",
         "iconPath": "/images/enroll.png",
         "selectedIconPath": "/images/enroll_selected.png"
