@@ -62,7 +62,7 @@
     <view class="card-content">
       <text class="card-content-detail">16个A类一级学科，位列全国高校第9位</text>
     </view>
-    <image class="card-img-cover card-img-cover-left" mode="aspectFit" src="https://s2.ax1x.com/2019/06/26/ZZI6bT.png">
+    <image class="card-img-cover card-img-cover-left" mode="widthFix" src="https://s2.ax1x.com/2019/06/26/ZZI6bT.png">
     </image>
   </view>
 
