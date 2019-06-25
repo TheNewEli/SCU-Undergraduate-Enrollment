@@ -1,7 +1,7 @@
 <content-title name="个人提问中心" describe="已按照时间排序">
 
   <block wx:key="{{message.date}}" wx:for="{{messages}}" wx:for-item="message" wx:for-index="idx">
-    <l-card id= "{{idx}}" type="avatar" l-class="card" image="userInfo.avatarUrl" title="{{userInfo.nickName}}" describe="{{message.date}}" bindtap="onItemTaped">
+    <l-card id= "{{idx}}" type="avatar" l-class="card" image="{{userInfo.avatarUrl}}" title="{{userInfo.nickName}}" describe="{{message.date}}" bindtap="onItemTaped">
       <view class="avter-content">
         {{message.content}}
       </view>
@@ -18,11 +18,11 @@
 
 
   <view class="add-container">
-    <button wx:if="{{!hasUserInfo}}" type="default" class="circle" plain="true" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+    <button wx:if="{{!hasUserInfo}}" class="circle"  open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
       <image class="add-img" src="/images/add.png"></image>
     </button>
-    <button wx:else type="default" class="circle" plain="true" bindtap="onCreateNewMessage">
-      <image class="add-img" src="/images/add.png"></image>
+    <button wx:else  class="circle"  bindtap="onCreateNewMessage" border="none">
+      <image class="add-img" src="/images/add.png" ></image>
     </button>
 
   </view>

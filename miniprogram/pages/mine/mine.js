@@ -71,7 +71,9 @@ Page({
          
           that.setData({
             openid: res.result.openid
-          })
+          });
+
+          that.getData();
         },
         fail: err => {
           console.error('[云函数] [login] 调用失败', err)
@@ -95,7 +97,32 @@ Page({
    */
   onShow: function () {
 
-    this.getData();
+    var openid = app.globalData.openid; //用户登陆后从缓存中获取
+
+    if (openid == undefined) {
+      var that = this;
+
+      wx.cloud.callFunction({
+        name: 'login',
+        data: {},
+        success: res => {
+          console.log('user openid: ', res.result.openid)
+          app.globalData.openid = res.result.openid
+
+          that.setData({
+            openid: res.result.openid
+          });
+
+          that.getData();
+        },
+        fail: err => {
+          console.error('[云函数] [login] 调用失败', err)
+        }
+      })
+    }
+
+    else
+      this.getData();
   },
 
   /**
@@ -123,7 +150,7 @@ Page({
     var that = this;
 
     db.collection('students').where({
-      _openid: that.openid
+      _openid: that.data.openid
     }).get({
       success: function (res) {
         //console.log(res.data[0])
@@ -243,6 +270,26 @@ Page({
   checkValid: function () {
 
     let errorMsg;
+
+    var data = this.data;
+
+    if(data.name=="")
+      this.data.correct[0]=0;
+    if (data.originalAddress == "")
+      this.data.correct[1] = 0;
+    if (data.highSchool == "")
+      this.data.correct[2] = 0;
+    if (data.telNumber == "")
+      this.data.correct[3] = 0;
+    
+    errorMsg="信息未完整";
+
+    if (data.score == "")
+      this.data.correct[4] = 0;
+    if (data.rank == "")
+      this.data.correct[5] = 0;
+
+
     for(var idx in this.data.correct){
       if(!this.data.correct[idx]){
         this.setData({
@@ -306,9 +353,18 @@ Page({
 
   onDistrictChanged: function (event) {
     this.data.originalAddress = event.detail.detail.value;
+
+    if (event.detail.detail.value.length > 3)
+      this.data.correct[1]=1;
+    else
+      this.data.correct[1] = 0;
   },
   onSchoolChanged: function (event) {
     this.data.highSchool= event.detail.detail.value;
+    if (event.detail.detail.value.length > 3)
+      this.data.correct[2] = 1;
+    else
+      this.data.correct[2] = 0;
   },
   onSubjectChanged: function (event) {
    this.data.subject = event.detail.value;

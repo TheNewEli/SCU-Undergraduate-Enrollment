@@ -112,7 +112,7 @@ Page({
   displayMessages:function (that){
 
     db.collection("questions").where({
-      _openid: that.openid
+      _openid: that.data.openid
     }).get({
       success:function(res){
         //console.log(res.data);
