@@ -102,14 +102,20 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.setData({
+      editable:false,
+      completed:false,
+    })
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.setData({
+      editable: false,
+      completed: false,
+    })
   },
 
   getData:function(){
@@ -273,6 +279,7 @@ Page({
   },
 
   onNameChanged: function (event){
+
     console.log(event)
 
     this.data.name = event.detail.detail.value;
@@ -288,6 +295,8 @@ Page({
     }
     else
       this.data.correct[0] = 1;
+    
+    this.checkValid();
   },
 
   onGenderChanged: function (event) {
@@ -321,6 +330,8 @@ Page({
     }
 
     this.data.telNumber = event.detail.detail.value;
+
+    this.checkValid();
   },
   onScoreChanged: function (event) {
 
@@ -336,6 +347,8 @@ Page({
       this.data.correct[4] = 1;
 
     this.data.score = event.detail.detail.value;
+
+    this.checkValid();
   },
   onRankChanged: function (event) {
 
@@ -351,6 +364,8 @@ Page({
       this.data.correct[5] = 1;
 
     this.data.rank = event.detail.detail.value;
+
+    this.checkValid();
   },
 
 })
