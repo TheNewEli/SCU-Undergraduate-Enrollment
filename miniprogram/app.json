@@ -5,7 +5,7 @@
     "pages/response/response",
     "pages/mine/mine",
     "pages/createMessage/CreateMessage",
-    "pages/professional/professional"
+    "pages/professional/professional",
     "pages/createMessage/createMessage"
   ],
   "window": {
