@@ -1,12 +1,11 @@
 {
   "pages": [
-    "pages/professional/professional",
     "pages/brochures/brochures",
     "pages/message/message",
     "pages/response/response",
     "pages/mine/mine",
-    "pages/createMessage/CreateMessage"
-
+    "pages/createMessage/CreateMessage",
+    "pages/professional/professional"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
