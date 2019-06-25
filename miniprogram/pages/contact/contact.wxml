@@ -1,6 +1,4 @@
 <content-title name="contact" describe="招生办或福建招生组联系方式">
-
-
   <view class="content">
     <l-list title="学校地址：四川省成都市一环路南一段24号" icon="address" is-link="{{false}}" />
     <l-list title="邮编：610065" icon="notification" is-link="{{false}}" />
@@ -12,7 +10,7 @@
     <l-list title="招生就业处E-mail:nic8401@scu.edu.cn" icon="setting" is-link="{{false}}" />
   </view>
   <view class="img-box">
-    <image src="https://s2.ax1x.com/2019/06/26/ZZoxkF.png"></image>
-    <image src="https://s2.ax1x.com/2019/06/26/ZZozY4.jpg"></image>
+    <image src="https://s2.ax1x.com/2019/06/26/ZZoxkF.png" data-id="1" bindtap="recognition"></image>
+    <image src="https://s2.ax1x.com/2019/06/26/ZZozY4.jpg" data-id="2" bindtap="recognition"></image>
   </view>
 </content-title>
