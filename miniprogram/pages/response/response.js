@@ -1,17 +1,35 @@
-// pages/response/response.js
+const db = wx.cloud.database(
+  { env: 'scu-undergraduate-tu0da' }
+);
+const app = getApp()
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    
+    question_id:"",
+    reply_id:"",
+    reply_content:"",
+    question_content:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var message  = wx.getStorageSync("currentMessage");
+
+    this.setData({
+      question_id: message.id,
+      question_content: message.content
+    });
+
+    this.disPlayContent();
 
   },
 
@@ -43,24 +61,21 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+  disPlayContent:function(){
 
-  },
+    var that = this;
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+    db.collection("replies").where({
+      question_id: that.data.question_id
+    }).get().then(res=>{
 
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      var data = res.data[0];
+      //console.log(data);
+      that.setData({
+        reply_content: data.reply,
+      })
+    })
   }
+
 })
