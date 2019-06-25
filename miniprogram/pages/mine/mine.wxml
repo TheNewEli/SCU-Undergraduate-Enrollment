@@ -11,7 +11,7 @@
         <view class="group-label"  >
           <text >性别</text>
           <l-radio-group bind:linchange="onGenderChanged" l-class="l-radio-group" placement="row" current="{{gender}}" >
-            <l-radio l-class="l-radio" l-title-class="l-title-class" wx:for="{{genders}}" wx:key="{{item.id}}" placement="left" shape="circle" value="{{item.value}}"disabled="{{!editable}}" >
+            <l-radio l-class="l-radio" l-title-class="l-title-class" wx:for="{{genders}}" wx:key="{{item.id}}" placement="left" shape="circle" value="{{item.value}}"disabled="{{!editable}}" color="#a203b1" >
             </l-radio>
           </l-radio-group>
         </view>
@@ -19,7 +19,7 @@
         <view class="group-label"  >
           <text >所属科目</text>
           <l-radio-group bind:linchange="onSubjectChanged" l-class="l-radio-group" placement="row" current="{{subject}}">
-            <l-radio l-class="l-radio" l-title-class="l-title-class" wx:for="{{subjects}}" wx:key="{{item.id}}" placement="left" shape="circle" value="{{item.value}}"disabled="{{!editable}}" >
+            <l-radio  l-class="l-radio" l-title-class="l-title-class" wx:for="{{subjects}}" wx:key="{{item.id}}" placement="left" shape="circle" value="{{item.value}}"disabled="{{!editable}}" color="#a203b1" >
             </l-radio>
           </l-radio-group>
         </view>
