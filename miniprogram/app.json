@@ -5,7 +5,8 @@
     "pages/response/response",
     "pages/mine/mine",
     "pages/professional/professional",
-    "pages/createMessage/createMessage"
+    "pages/createMessage/createMessage",
+    "pages/contact/contact"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -39,7 +40,7 @@
         "selectedIconPath": "/images/message_selected.png"
       },
       {
-        "pagePath": "pages/message/message",
+        "pagePath": "pages/contact/contact",
         "text": "联系招生组",
         "iconPath": "/images/call.png",
         "selectedIconPath": "/images/call_selected.png"

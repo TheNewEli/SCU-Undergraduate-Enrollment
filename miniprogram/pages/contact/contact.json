@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "content-title": "/components/content-title/index",
+    "l-list": "/dist/list/index"
+  }
+}

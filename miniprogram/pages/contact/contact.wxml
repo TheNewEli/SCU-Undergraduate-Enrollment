@@ -1,0 +1,18 @@
+<content-title name="contact" describe="招生办或福建招生组联系方式">
+
+
+  <view class="content">
+    <l-list title="学校地址：四川省成都市一环路南一段24号" icon="address" is-link="{{false}}" />
+    <l-list title="邮编：610065" icon="notification" is-link="{{false}}" />
+    <l-list title="孙老师：18602823363" icon="phone" is-link="{{false}}" />
+    <l-list title="王老师：13540837898" icon="phone" is-link="{{false}}" />
+    <l-list title="QQ：156485883" icon="customer-service" is-link="{{false}}" />
+    <l-list title="学校网址：http://www.scu.edu.cn" icon="setting" is-link="{{false}}" />
+    <l-list title="本科招生网址：http://zs.scu.edu.cn" icon="setting" is-link="{{false}}" />
+    <l-list title="招生就业处E-mail:nic8401@scu.edu.cn" icon="setting" is-link="{{false}}" />
+  </view>
+  <view class="img-box">
+    <image src="https://s2.ax1x.com/2019/06/26/ZZoxkF.png"></image>
+    <image src="https://s2.ax1x.com/2019/06/26/ZZozY4.jpg"></image>
+  </view>
+</content-title>
