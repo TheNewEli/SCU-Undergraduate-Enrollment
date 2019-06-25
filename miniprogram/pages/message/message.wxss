@@ -78,7 +78,7 @@
   position: fixed;
   right: 40rpx;
   bottom: 60rpx;
-  z-index: 2;
+  z-index: 999;
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
@@ -92,4 +92,14 @@
 .add-img{
   width: 50rpx;
   height:50rpx;
+}
+
+.circle{
+    width: 100rpx;
+    height: 100rpx;
+    border: 0 solid #ffffff;
+    border-radius: 500rpx;
+    box-shadow: 3rpx 3rpx 3rpx #cccccc;
+    display: flex;
+    align-items: center;
 }

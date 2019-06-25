@@ -1,25 +1,32 @@
 <content-title name="个人提问中心" describe="已按照时间排序">
 
-
-  <l-card type="avatar" l-class="card" image="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549711852726&di=6b454cec0b57f62d46089487454fa56f&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201609%2F14%2F20160914062816_SC8KU.jpeg"
-    title="七月在夏天" describe="2019-07-07">
+  <block wx:key="{{message.date}}" wx:for="{{messages}}" wx:for-item="message">
+    <l-card type="avatar" l-class="card" image="userInfo.avatarUrl"
+    title="userInfo.nickName" describe="{{message.date}}">
     <view class="avter-content">
-      很简单，豆瓣现在这样就给大家指了一条明路:以后凡是这种国产的风口浪尖的的片子，会涉及到各方背后利益关系的片子...
+      {{message.content}}
     </view>
-    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">已回复，点击查看</l-tag>
+    <l-tag wx:if="{{message.replied}}" shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">已回复，点击查看</l-tag>
+    <l-tag wx:else shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">暂未回复</l-tag>
   </l-card>
+  </block>
 
-  <l-card type="avatar" l-class="card" image="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549711852726&di=6b454cec0b57f62d46089487454fa56f&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201609%2F14%2F20160914062816_SC8KU.jpeg"
-    title="七月在夏天" describe="2019-07-07">
-    <view class="avter-content">
-      很简单，豆瓣现在这样就给大家指了一条明路:以后凡是这种国产的风口浪尖的的片子，会涉及到各方背后利益关系的片子...
-    </view>
-    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">暂未回复</l-tag>
-  </l-card>
+  <l-card wx:if="{{messages.length==0}}" type="primary" plaintext="{{true}}" title="温馨提示!">
+  <view  class="content">
+    你还没有任何提问，赶快点击下面的添加按钮添加吧~~
+  </view></l-card>
+  
 
-
-  <view bindtap="" class="add-container">
-    <image class="add-img" src="/images/add.png"></image>
+  <view class="add-container">
+    <button wx:if="{{!hasUserInfo}}" type="default" class="circle" plain="true"
+    open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+      <image class="add-img" src="/images/add.png"></image>
+    </button>
+    <button wx:else type="default" class="circle" plain="true"
+    bindtap="onCreateNewMessage">
+      <image class="add-img" src="/images/add.png"></image>
+    </button>
+    
   </view>
 
 </content-title>

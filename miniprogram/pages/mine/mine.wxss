@@ -3,7 +3,7 @@
   position: fixed;
   right: 40rpx;
   bottom: 60rpx;
-  z-index: 2;
+  z-index: 999;
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
