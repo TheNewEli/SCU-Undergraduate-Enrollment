@@ -12,9 +12,9 @@ Page({
    */
   data: {
 
-    content:"",
-    due:"",
-    status:"未回复",
+    content: "",
+    due: "",
+    status: "未回复",
   },
 
   /**
@@ -72,46 +72,49 @@ Page({
 
   },
 
-  OnSubmitQuestion: function(){
+  OnSubmitQuestion: function () {
 
-    if(this.content.length <= 7)
-    {
+    if (this.data.content.length <= 7) {
       wx.showToast({
         title: '字数太短',
-        icon:"none",
-        duration:2000
+        icon: "none",
+        duration: 2000
       });
       return;
     }
-      this.due = new Date();
-      // console.log(this.due);
-      // console.log(this.content);
+    this.data.due = new Date();
+    // console.log(this.due);
+    // console.log(this.content);
 
-      var that = this;
+    var that = this;
 
-      db.collection("questions").add({
 
-        data:{
-          openid: app.globalData.openid,
-          status: that.status,
-          submition_time: that.due,
-          content: that.content
-        },
+    db.collection("questions").add({
 
-        success: function (res) {
-          wx.showToast({
-            title: '提问成功',
-            icon:"success",
-            duration:1500
-          })
-        },
-        fail: console.error
+      data: {
+        status: that.data.status,
+        submition_time: that.data.due,
+        content: that.data.content
+      },
 
-      })
+      success: function (res) {
+        wx.showToast({
+          title: '提问成功',
+          icon: "success",
+          duration: 1500
+        })
+
+        wx.navigateBack({
+          delta: 1
+        })
+      },
+      fail: console.error
+
+    })
   },
 
-  onContentChanged:function(event){
-    this.content = event.detail.detail.value;
+  onContentChanged: function (event) {
+    this.data.content = event.detail.detail.value;
     //console.log(this.content);
   }
 

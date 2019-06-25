@@ -126,20 +126,39 @@ Page({
 
   formatData:function (data, that){
 
+    if(data.length!=0){
+      app.globalData.personalInfoCompleted = true;
+
+      data.sort(function(a,b){
+        if (a.submition_time < b.submition_time)
+          return 1;
+        else
+          return -1;
+      });
+    }
+
     var messages = [];
 
     for(var item of data){
       var message = {};
       message.content = item.content;
+      message.id = item._id;
       
       var GMT_time = item.submition_time;
       var year= GMT_time.getFullYear();
       var month = GMT_time.getMonth();
       var day = GMT_time.getDate();
+      var hours = GMT_time.getHours();
+      if(hours < 10)
+        hours = "0"+hours;
 
-      message.date = year+"-"+month+"-"+day;
+      var minutes = GMT_time.getMinutes();  
+      if(minutes < 10)
+        minutes = "0" + minutes;
+
+      message.date = year+"-"+month+"-"+day+" "+hours+":"+minutes;
       
-      if(item.status == "未答复")
+      if(item.status == "未回复")
         message.replied = false;
       else
         message.replied = true;
@@ -152,9 +171,29 @@ Page({
   },
 
   onCreateNewMessage:function(){
-   wx.navigateTo({
-     url: '/pages/createMessage/createMessage',
-   })
+
+    if (!app.globalData.personalInfoCompleted){
+      wx.showModal({
+        title: '提示',
+        content: '请完善个人信息',
+        success(res) {
+          if (res.confirm) {
+            console.log("用户点击确认")
+            wx.switchTab({
+              url: '/pages/mine/mine',
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+  
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/createMessage/createMessage',
+      })
+    }
   },
 
 
@@ -171,5 +210,30 @@ Page({
 
     this.onCreateNewMessage();
   },
+
+  onItemTaped:function(e){
+    //console.log(e.currentTarget.id);
+
+    var id = e.currentTarget.id;
+    var message = this.data.messages[id];
+
+    if(message.replied){
+
+      wx.setStorage({
+        key: 'currentMessage',
+        data: message,
+      })
+
+      wx.navigateTo({
+        url: '/pages/response/response',
+      });
+    }else{
+      wx.showToast({
+        title: '没有更过信息了~',
+        icon:"none",
+        duration:1500
+      })
+    }
+  }
 
 })
