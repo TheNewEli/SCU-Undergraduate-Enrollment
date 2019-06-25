@@ -1,0 +1,38 @@
+@import "../../components/content-title/index.wxss";
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 690rpx;
+  margin: 0 auto;
+}
+
+.tag-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 630rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.auto{
+  margin: 0 auto;
+}
+
+.chapter{
+  text-align: center;
+  font-size: 38rpx;
+  margin: 30rpx auto;
+  color: purple;
+  font-weight: bold;
+}
+.graph{
+  font-size: 28rpx;
+  margin: 10rpx 0;
+  line-height: 50rpx;
+}
+
+.heigh-light {
+  color: red;
+}

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/brochures/brochures",
     "pages/message/message",
     "pages/response/response",
     "pages/mine/mine",
@@ -19,7 +20,7 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/message/message",
+        "pagePath": "pages/brochures/brochures",
         "text": "招生简章",
         "iconPath": "/images/home.png",
         "selectedIconPath": "/images/home_selected.png"
