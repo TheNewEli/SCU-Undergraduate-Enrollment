@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/professional/professional",
     "pages/brochures/brochures",
     "pages/message/message",
     "pages/response/response",
     "pages/mine/mine",
     "pages/createMessage/CreateMessage"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -26,7 +28,7 @@
         "selectedIconPath": "/images/home_selected.png"
       },
       {
-        "pagePath": "pages/message/message",
+        "pagePath": "pages/professional/professional",
         "text": "招生专业",
         "iconPath": "/images/enroll.png",
         "selectedIconPath": "/images/enroll_selected.png"

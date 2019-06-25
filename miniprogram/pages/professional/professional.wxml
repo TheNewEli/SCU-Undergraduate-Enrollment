@@ -1,0 +1,90 @@
+<view class="content-title">
+  <view class="content-name" style="font-size:42rpx;font-weight:bold;color:red">四川大学专业介绍</view>
+  <view class="content-line" style="width:30rpx"></view>
+  <slot />
+</view>
+
+<view class="container">
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="card-content-name">12个学科门类</view>
+  </view>
+    <view class="card card-container card-container-cover card-container-cover-left card-container-unfull">
+    <view class="card-content">
+    <text class="card-content-detail">覆盖文、理、工、医、经、管、法、史、哲、农、教、艺等，是目前中国高校学科最齐全的高校之一，有34个学科型学院及研究生院、海外教育学院等。</text>
+      <rich-text name="ul" type="circle" class="card-content-ul">
+        <rich-text name="li">•	本科专业122个</rich-text>
+        <rich-text name="li">•  专业学位授权点32个</rich-text>
+        <rich-text name="li">•	国家重点学科46个</rich-text>
+        <rich-text name="li">•	一级学科博士学位授权点47个</rich-text>
+        <rich-text name="li">•	国家临床重点专科45个</rich-text>
+        <rich-text name="li">•	博士后流动站37个</rich-text>
+      </rich-text>
+    </view>
+  </view>
+
+
+
+
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="card-content-name">我校入选国家双一流建设学科的名单</view>
+  </view>
+  <view class="card card-container card-container-cover card-container-cover-left card-container-unfull">
+    <view class="card-content">
+      <rich-text name="ul" type="circle" class="card-content-ul">
+        <rich-text name="li">•	数学</rich-text>
+        <rich-text name="li">•	化学</rich-text>
+        <rich-text name="li">•	材料科学与工程</rich-text>
+        <rich-text name="li">•	基础医学</rich-text>
+        <rich-text name="li">•	口腔医学</rich-text>
+        <rich-text name="li">•	护理学</rich-text>
+        <rich-text name="li" style="text-align:right">——涵盖理学、工学和医学，优势学科均衡</rich-text>
+      </rich-text>
+    </view>
+  </view>
+
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="card-content-name">四川大学专业建设的特色</view>
+  </view>
+  <view class="card card-container card-container-cover card-container-cover-left card-container-unfull">
+    <view class="card-content">
+      <text class="card-content-detail">办最好的医科，办一流的文科、理科和新工科</text>
+    </view>
+  </view>
+
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="card-content-name">全国评估</view>
+  </view>
+  <view class="card card-container card-container-cover card-container-cover-left card-container-unfull">
+    <view class="card-content">
+      <text class="card-content-detail">16个A类一级学科，位列全国高校第9位</text>
+    </view>
+    <image class="card-img-cover card-img-cover-left" mode="aspectFit" src="https://s2.ax1x.com/2019/06/26/ZZI6bT.png">
+    </image>
+  </view>
+
+  <view class="card-top">
+    <view class="card-dot"></view>
+    <view class="card-content-name">ESI排名</view>
+  </view>
+  <view class="card card-container card-container-cover card-container-cover-left card-container-unfull">
+    <view class="card-content">
+      <text class="card-content-detail">ESI排名前1%的学科领域17个，位列全国高校第8位</text>
+    </view>
+    <image class="card-img-cover card-img-cover-left" height="280px" mode="widthFix" src="https://s2.ax1x.com/2019/06/26/ZZo3i4.png">
+    </image>
+    <image class="card-img-cover card-img-cover-left" mode="widthFix" src="https://s2.ax1x.com/2019/06/26/ZZo8JJ.png">
+    </image>
+
+  </view>
+
+
+</view>
+
+
+
+
+<l-loadmore show type="end" color="{{more.color}}" line="true" end-text="我是有底线的" color="#3963BC" />
