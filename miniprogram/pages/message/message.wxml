@@ -1,0 +1,25 @@
+<content-title name="个人提问中心" describe="已按照时间排序">
+
+
+  <l-card type="avatar" l-class="card" image="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549711852726&di=6b454cec0b57f62d46089487454fa56f&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201609%2F14%2F20160914062816_SC8KU.jpeg"
+    title="七月在夏天" describe="2019-07-07">
+    <view class="avter-content">
+      很简单，豆瓣现在这样就给大家指了一条明路:以后凡是这种国产的风口浪尖的的片子，会涉及到各方背后利益关系的片子...
+    </view>
+    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">已回复，点击查看</l-tag>
+  </l-card>
+
+  <l-card type="avatar" l-class="card" image="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549711852726&di=6b454cec0b57f62d46089487454fa56f&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201609%2F14%2F20160914062816_SC8KU.jpeg"
+    title="七月在夏天" describe="2019-07-07">
+    <view class="avter-content">
+      很简单，豆瓣现在这样就给大家指了一条明路:以后凡是这种国产的风口浪尖的的片子，会涉及到各方背后利益关系的片子...
+    </view>
+    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">暂未回复</l-tag>
+  </l-card>
+
+
+  <view bindtap="" class="add-container">
+    <image class="add-img" src="/images/add.png"></image>
+  </view>
+
+</content-title>

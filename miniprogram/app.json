@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/message/message",
+    "pages/response/response",
+    "pages/mine/mine",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -13,8 +16,46 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "四川大学招生小助手",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#3963BC",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/message/message",
+        "text": "招生简章",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_selected.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "招生专业",
+        "iconPath": "/images/enroll.png",
+        "selectedIconPath": "/images/enroll_selected.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息中心",
+        "iconPath": "/images/message.png",
+        "selectedIconPath": "/images/message_selected.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "联系招生组",
+        "iconPath": "/images/call.png",
+        "selectedIconPath": "/images/call_selected.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人信息",
+        "iconPath": "/images/personal-data.png",
+        "selectedIconPath": "/images/personal-data_selected.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
