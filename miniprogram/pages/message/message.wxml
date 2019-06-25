@@ -2,7 +2,7 @@
 
   <block wx:key="{{message.date}}" wx:for="{{messages}}" wx:for-item="message">
     <l-card type="avatar" l-class="card" image="userInfo.avatarUrl"
-    title="userInfo.nickName" describe="{{message.date}}">
+    title="{{userInfo.nickName}}" describe="{{message.date}}">
     <view class="avter-content">
       {{message.content}}
     </view>

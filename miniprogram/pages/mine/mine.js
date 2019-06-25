@@ -57,6 +57,9 @@ Page({
         }
       })
     }
+
+    else
+      this.getData();
   },
 
   /**
@@ -106,8 +109,8 @@ Page({
         }
         else {
           var personal_data = res.data[0];
-          console.log(personal_data);
-
+          app.globalData.personalInfoCompleted = true;
+          //console.log(personal_data);
 
           that.setData({
             name: personal_data.name,
@@ -136,19 +139,20 @@ Page({
     if(!editable){
       editable = true;
     }
-    else if(completed)
-    {
-      this.sendModifiedData();
-    }
+    // else if(completed)
+    // {
+    //   this.sendModifiedData();
+    // }
     else
     {
-      wx.showToast({
-        title: "填写有误",
-        icon: 'none',
-        duration: 2000
-      });
+      // wx.showToast({
+      //   title: "填写有误",
+      //   icon: 'none',
+      //   duration: 2000
+      // });
+      this.sendModifiedData();
 
-      completed = false;
+      completed = true;
       editable = false;
 
     }
@@ -162,29 +166,91 @@ Page({
   sendModifiedData: function () {
 
     var data = this.data;
+
+    console.log(data);
+
     db.collection('students').doc(this._id).update({
       data: {
-        art_n_sicence: data.art_n_sicence,
-        district: data.district,
+        art_n_sicence: data.subject,
+        district: data.originalAddress,
         gender: data.gender,
         name: data.name,
-        openid: data.openid,
-        phone_number: data.phone_number,
-        ranking: data.ranking,
-        school: data.school,
+        phone_number: data.telNumber,
+        ranking: data.rank,
+        school: data.highSchool,
         score: data.score
       },
       success: function (res) {
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 2000
-        })
+
+        console.log(res);
+
+        if(res.stats.updated==0){
+          db.collection('students').add({
+            data: {
+              art_n_sicence: data.subject,
+              district: data.originalAddress,
+              gender: data.gender,
+              name: data.name,
+              phone_number: data.telNumber,
+              ranking: data.rank,
+              school: data.highSchool,
+              score: data.score
+            },
+            success:function(res){
+
+              app.globalData.personalInfoCompleted = true;
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+              })
+            }
+          })
+        }
+        else
+        {
+          app.globalData.personalInfoCompleted = true;
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000
+          })
+        }
+      
       }
     })
   },
 
   checkValid: function () {
-  }
+  },
+
+  onNameChanged: function (event){
+    this.data.name = event.detail.detail.value;
+  },
+
+  onGenderChanged: function (event) {
+    this.data.gender = event.detail.detail.value;
+  },
+
+  onDistrictChanged: function (event) {
+    this.data.originalAddress = event.detail.detail.value;
+  },
+  onSchoolChanged: function (event) {
+    this.data.highSchool= event.detail.detail.value;
+  },
+
+  onSubjectChanged: function (event) {
+    this.data.subject = event.detail.detail.value;
+  },
+
+  onTelChanged: function (event) {
+    this.data.telNumber = event.detail.detail.value;
+  },
+  onScoreChanged: function (event) {
+    this.data.score = event.detail.detail.value;
+  },
+  onRankChanged: function (event) {
+    this.data.rank = event.detail.detail.value;
+  },
 
 })

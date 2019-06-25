@@ -1,4 +1,9 @@
-// pages/message/message.js
+const db = wx.cloud.database(
+  { env: 'scu-undergraduate-tu0da' }
+);
+const app = getApp()
+
+
 Page({
 
   /**
@@ -7,7 +12,6 @@ Page({
   data: {
 
     messages:[
-     
     ],
 
     hasUserInfo:false,
@@ -45,7 +49,9 @@ Page({
           })
         }
       }
-    })
+    });
+
+
   },
 
   /**
@@ -59,6 +65,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    var openid = app.globalData.openid; //用户登陆后从缓存中获取
+
+    if (openid == undefined) {
+      var that = this;
+
+      wx.cloud.callFunction({
+        name: 'login',
+        data: {},
+        success: res => {
+          console.log('user openid: ', res.result.openid)
+          app.globalData.openid = res.result.openid
+
+          that.setData({
+            openid: res.result.openid
+          });
+
+          that.displayMessages(that);
+        },
+        fail: err => {
+          console.error('[云函数] [login] 调用失败', err)
+        }
+      })
+    }
+
+    else
+      this.displayMessages(this);
 
   },
 
@@ -76,8 +109,52 @@ Page({
 
   },
 
+  displayMessages:function (that){
+
+    db.collection("questions").where({
+      _openid: that.openid
+    }).get({
+      success:function(res){
+        //console.log(res.data);
+        that.formatData(res.data,that);
+      },
+      fail:function(error){
+        console.log(error);
+      }
+    })
+  },
+
+  formatData:function (data, that){
+
+    var messages = [];
+
+    for(var item of data){
+      var message = {};
+      message.content = item.content;
+      
+      var GMT_time = item.submition_time;
+      var year= GMT_time.getFullYear();
+      var month = GMT_time.getMonth();
+      var day = GMT_time.getDate();
+
+      message.date = year+"-"+month+"-"+day;
+      
+      if(item.status == "未答复")
+        message.replied = false;
+      else
+        message.replied = true;
+      //console.log(message);
+      messages.push(message);
+    }
+    that.setData({
+      messages : messages,
+    })
+  },
+
   onCreateNewMessage:function(){
-    console.log("test");
+   wx.navigateTo({
+     url: '/pages/createMessage/createMessage',
+   })
   },
 
 
