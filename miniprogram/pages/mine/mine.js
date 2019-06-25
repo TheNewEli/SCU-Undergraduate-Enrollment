@@ -25,9 +25,30 @@ Page({
 
     editable: false,
     completed: false,
+    correct:[1,1,1,1,1,1],
 
     _id: "",
-    openid:""
+    openid:"",
+
+    genders:[{
+      id:0,
+      value:"男性"
+    },
+      {
+        id: 1,
+        value: "女性"
+      }
+    ],
+
+    subjects: [{
+      id: 0,
+      value: "文科"
+    },
+    {
+      id: 1,
+      value: "理科"
+    }
+    ]
   },
 
   /**
@@ -131,36 +152,20 @@ Page({
 
   onEdit: function () {
 
-    var data = this.data;
+    this.checkValid();
 
-    var editable = data.editable;
-    var completed = data.completed;
-
-    if(!editable){
-      editable = true;
+    if(!this.data.editable){
+      this.setData({
+        editable:true
+      })
     }
-    // else if(completed)
-    // {
-    //   this.sendModifiedData();
-    // }
-    else
+    else if(this.data.completed)
     {
-      // wx.showToast({
-      //   title: "填写有误",
-      //   icon: 'none',
-      //   duration: 2000
-      // });
       this.sendModifiedData();
-
-      completed = true;
-      editable = false;
-
     }
+    else
+      this.checkValid();
 
-    this.setData({
-      editable:editable,
-      completed:completed
-    })
   },
 
   sendModifiedData: function () {
@@ -200,9 +205,13 @@ Page({
 
               app.globalData.personalInfoCompleted = true;
               wx.showToast({
-                title: '成功',
+                title: '添加成功',
                 icon: 'success',
                 duration: 2000
+              });
+
+              wx.switchTab({
+                url: '/pages/message/message',
               })
             }
           })
@@ -211,9 +220,13 @@ Page({
         {
           app.globalData.personalInfoCompleted = true;
           wx.showToast({
-            title: '成功',
+            title: '修改成功',
             icon: 'success',
             duration: 2000
+          })
+
+          wx.switchTab({
+            url: '/pages/message/message',
           })
         }
       
@@ -222,14 +235,64 @@ Page({
   },
 
   checkValid: function () {
+
+    let errorMsg;
+    for(var idx in this.data.correct){
+      if(!this.data.correct[idx]){
+        this.setData({
+          completed: false,
+        })
+        switch(idx){
+          case '0':
+            errorMsg = "姓名错误";
+            break;
+          case '3':
+            errorMsg = "手机号错误";
+            break;
+          case '4':
+            errorMsg = "成绩错误";
+            break;
+          case '5':
+            errorMsg = "位次错误";
+            break;
+        }
+
+        wx.showToast({
+          title: errorMsg,
+          icon:"none"
+        });
+
+        return;
+      }
+    }
+
+    this.setData({
+      completed:true,
+    })
+
   },
 
   onNameChanged: function (event){
+    console.log(event)
+
     this.data.name = event.detail.detail.value;
+
+    if ((/^[\x07-\xff]*$/.test(this.data.name))){
+
+      this.data.correct[0]= 0;
+
+      wx.showToast({
+        title: '名字非法,请重新填写',
+        icon:'none'
+      })
+    }
+    else
+      this.data.correct[0] = 1;
   },
 
   onGenderChanged: function (event) {
-    this.data.gender = event.detail.detail.value;
+    console.log(event);
+    this.data.gender = event.detail.value;
   },
 
   onDistrictChanged: function (event) {
@@ -238,18 +301,55 @@ Page({
   onSchoolChanged: function (event) {
     this.data.highSchool= event.detail.detail.value;
   },
-
   onSubjectChanged: function (event) {
-    this.data.subject = event.detail.detail.value;
+   this.data.subject = event.detail.value;
   },
 
   onTelChanged: function (event) {
+
+    if (event.detail.detail.value.length != 11)
+    {
+      wx.showToast({
+        title: '手机号无效，重新填写',
+        icon: 'none'
+      });
+
+      this.data.correct[3] = 0;
+    }
+    else{
+      this.data.correct[3] = 1;
+    }
+
     this.data.telNumber = event.detail.detail.value;
   },
   onScoreChanged: function (event) {
+
+    if (event.detail.detail.value < 0 || event.detail.detail.value > 1000 ){
+       wx.showToast({
+        title: '您的成绩也太奇怪了吧',
+        icon: 'none'
+      });
+
+      this.data.correct[4] = 0;
+    }
+    else
+      this.data.correct[4] = 1;
+
     this.data.score = event.detail.detail.value;
   },
   onRankChanged: function (event) {
+
+    if (event.detail.detail.value < 0){
+      wx.showToast({
+        title: '排名不存在',
+        icon: 'none'
+      });
+      this.data.correct[5] = 0;
+    }
+
+    else
+      this.data.correct[5] = 1;
+
     this.data.rank = event.detail.detail.value;
   },
 

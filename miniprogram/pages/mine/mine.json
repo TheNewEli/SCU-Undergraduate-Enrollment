@@ -5,6 +5,8 @@
     "l-toast": "/dist/toast/index",
     "l-input": "/dist/input/index",
     "l-button": "/dist/button/index",
-    "l-icon": "/dist/icon/index"
+    "l-icon": "/dist/icon/index",
+    "l-radio-group": "/dist/radio-group/index",
+    "l-radio": "/dist/radio/index"
   }
 }
