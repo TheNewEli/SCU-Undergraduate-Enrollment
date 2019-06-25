@@ -97,9 +97,13 @@
 .circle{
     width: 100rpx;
     height: 100rpx;
-    border: 0 solid #ffffff;
+    /* border: 0 solid #ffffff; */
     border-radius: 500rpx;
-    box-shadow: 3rpx 3rpx 3rpx #cccccc;
+    box-shadow: 3rpx 3rpx 3rpx  #ffffff;
     display: flex;
     align-items: center;
+}
+
+.circle::after{
+  border: none;
 }
