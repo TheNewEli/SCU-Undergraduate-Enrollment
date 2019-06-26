@@ -35,7 +35,7 @@
       },
       {
         "pagePath": "pages/message/message",
-        "text": "消息中心",
+        "text": "报考咨询",
         "iconPath": "/images/message.png",
         "selectedIconPath": "/images/message_selected.png"
       },

@@ -150,7 +150,7 @@ Page({
     var that = this;
 
     db.collection('students').where({
-      _openid: that.data.openid
+      _openid: app.globalData.openid
     }).get({
       success: function (res) {
         //console.log(res.data[0])
@@ -207,6 +207,8 @@ Page({
 
     console.log(data);
 
+    var that = this;
+
     db.collection('students').doc(this._id).update({
       data: {
         art_n_sicence: data.subject,
@@ -223,28 +225,34 @@ Page({
         console.log(res);
 
         if(res.stats.updated==0){
-          db.collection('students').add({
-            data: {
-              art_n_sicence: data.subject,
-              district: data.originalAddress,
-              gender: data.gender,
-              name: data.name,
-              phone_number: data.telNumber,
-              ranking: data.rank,
-              school: data.highSchool,
-              score: data.score
-            },
+
+          db.collection("students").doc(that._id).remove({
             success:function(res){
+              console.log(res);
+              db.collection('students').add({
+                data: {
+                  art_n_sicence: data.subject,
+                  district: data.originalAddress,
+                  gender: data.gender,
+                  name: data.name,
+                  phone_number: data.telNumber,
+                  ranking: data.rank,
+                  school: data.highSchool,
+                  score: data.score
+                },
+                success: function (res) {
 
-              app.globalData.personalInfoCompleted = true;
-              wx.showToast({
-                title: '添加成功',
-                icon: 'success',
-                duration: 2000
-              });
+                  app.globalData.personalInfoCompleted = true;
+                  wx.showToast({
+                    title: '添加成功',
+                    icon: 'success',
+                    duration: 2000
+                  });
 
-              wx.switchTab({
-                url: '/pages/message/message',
+                  wx.switchTab({
+                    url: '/pages/message/message',
+                  })
+                }
               })
             }
           })
@@ -282,7 +290,7 @@ Page({
     if (data.telNumber == "")
       this.data.correct[3] = 0;
     
-    errorMsg="信息未完整";
+    //errorMsg="信息未完整";
 
     if (data.score == "")
       this.data.correct[4] = 0;
@@ -309,12 +317,13 @@ Page({
             errorMsg = "位次错误";
             break;
         }
+        if(errorMsg.length !== 0){
+          wx.showToast({
+            title: errorMsg,
+            icon: "none"
+          });
 
-        wx.showToast({
-          title: errorMsg,
-          icon:"none"
-        });
-
+        }
         return;
       }
     }
@@ -354,14 +363,14 @@ Page({
   onDistrictChanged: function (event) {
     this.data.originalAddress = event.detail.detail.value;
 
-    if (event.detail.detail.value.length > 3)
+    if (event.detail.detail.value.length > 0)
       this.data.correct[1]=1;
     else
       this.data.correct[1] = 0;
   },
   onSchoolChanged: function (event) {
     this.data.highSchool= event.detail.detail.value;
-    if (event.detail.detail.value.length > 3)
+    if (event.detail.detail.value.length > 0)
       this.data.correct[2] = 1;
     else
       this.data.correct[2] = 0;
@@ -372,7 +381,7 @@ Page({
 
   onTelChanged: function (event) {
 
-    if (event.detail.detail.value.length != 11)
+    if (event.detail.detail.value.length !=11)
     {
       wx.showToast({
         title: '手机号无效，重新填写',

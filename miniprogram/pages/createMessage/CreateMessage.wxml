@@ -2,7 +2,7 @@
 <content-title name="创建新的提问" describe="相关人员会尽快回复">
 <content-card
       class="content"
-      name="随心所问"
+      name="报考咨询"
     >
       <view class='buttun-wrapper'>
         <l-textarea  bind:linchange="onContentChanged" border="{{false}}" auto-height="{{true}}" h placeholder="说说你的想法吧..." value="{{content}}"/>

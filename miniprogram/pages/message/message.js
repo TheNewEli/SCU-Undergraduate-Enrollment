@@ -68,7 +68,7 @@ Page({
 
     var openid = app.globalData.openid; //用户登陆后从缓存中获取
 
-    if (openid == undefined) {
+    if (openid === undefined) {
       var that = this;
 
       wx.cloud.callFunction({
@@ -89,7 +89,6 @@ Page({
         }
       })
     }
-
     else
       this.displayMessages(this);
 
@@ -99,23 +98,31 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    this.setData({
+      editable: false,
+      completed:true,
+    })
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.setData({
+      editable: false,
+      completed: true,
+    })
   },
 
   displayMessages:function (that){
+
+    console.log(that.data.openid)
 
     db.collection("questions").where({
       _openid: that.data.openid
     }).get({
       success:function(res){
-        //console.log(res.data);
+        console.log(res.data);
         that.formatData(res.data,that);
       },
       fail:function(error){
