@@ -4,23 +4,27 @@ Page({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg1.jpg?sign=cdb478f1f5458d374e6641cb68923552&t=1561538201'
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg14.jpg?sign=d72012103d9bde541d752565d78982fb&t=1561541939'
     }, {
       id: 1,
       type: 'image',
-        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg2.jpg?sign=d5081702708ca5ae91b7806561793df9&t=1561538216'
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg2.jpg?sign=d5081702708ca5ae91b7806561793df9&t=1561538216'
     }, {
       id: 2,
       type: 'image',
-        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg3.jpg?sign=7981497d136b309a6336ae042487c234&t=1561538227'
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg8.jpeg?sign=f66212b0b3f2795791945a6cccf7ea02&t=1561540378'
     }, {
       id: 3,
       type: 'image',
-        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg4.jpg?sign=da5ee8c545f0dbb6467b6a0b1ffaa13c&t=1561538239'
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg6.jpeg?sign=5659047017c050789ae6c7e6c1195e52&t=1561540409'
     }, {
       id: 4,
       type: 'image',
-        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg5.jpg?sign=5f84d66e3836ef819cb9a49f6df2b842&t=1561538252'
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg9.jpeg?sign=6f0d8aecab4cccd68d8d709ae943a2ca&t=1561540449'
+    }, {
+      id: 5,
+      type: 'image',
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg10.jpg?sign=e61a0ef62db291bcb17be3c12e3c2c71&t=1561541390'
     }],
     elements: [{
         title: '招生简章',
