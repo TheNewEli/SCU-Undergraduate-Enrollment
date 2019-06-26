@@ -114,6 +114,11 @@ Page({
     })
   },
 
+  onPullDownRefresh:function(){
+    this.displayMessages(this);
+    wx.stopPullDownRefresh();
+  },
+
   displayMessages:function (that){
 
     console.log(that.data.openid)
