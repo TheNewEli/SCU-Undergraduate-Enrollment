@@ -10,7 +10,7 @@
     <l-list title="招生就业处E-mail:nic8401@scu.edu.cn" icon="setting" is-link="{{false}}" />
   </view>
   <view class="img-box">
-    <image src="https://s2.ax1x.com/2019/06/26/ZZoxkF.png" data-id="1" bindtap="recognition"></image>
-    <image src="https://s2.ax1x.com/2019/06/26/ZZozY4.jpg" data-id="2" bindtap="recognition"></image>
+    <image src="https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/qr1.png?sign=46232a500b5fb3e17c6aef4007bf39d3&t=1561538319" data-id="1" bindtap="recognition"></image>
+    <image src="https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/qr2.jpg?sign=8dcd07142f888ed44c4dff80144a6688&t=1561538334" data-id="2" bindtap="recognition"></image>
   </view>
 </content-title>

@@ -4,23 +4,23 @@ Page({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://s2.ax1x.com/2019/06/26/ZeDr9S.jpg'
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg1.jpg?sign=cdb478f1f5458d374e6641cb68923552&t=1561538201'
     }, {
       id: 1,
       type: 'image',
-      url: 'https://s2.ax1x.com/2019/06/26/ZeDfA0.jpg'
+        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg2.jpg?sign=d5081702708ca5ae91b7806561793df9&t=1561538216'
     }, {
       id: 2,
       type: 'image',
-      url: 'https://s2.ax1x.com/2019/06/26/ZereC8.jpg'
+        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg3.jpg?sign=7981497d136b309a6336ae042487c234&t=1561538227'
     }, {
       id: 3,
       type: 'image',
-      url: 'https://s2.ax1x.com/2019/06/26/ZeD6Xj.jpg'
+        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg4.jpg?sign=da5ee8c545f0dbb6467b6a0b1ffaa13c&t=1561538239'
     }, {
       id: 4,
       type: 'image',
-      url: 'https://s2.ax1x.com/2019/06/26/ZeyzCV.jpg'
+        url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/images/coverImg5.jpg?sign=5f84d66e3836ef819cb9a49f6df2b842&t=1561538252'
     }],
     elements: [{
         title: '招生简章',
@@ -33,9 +33,7 @@ Page({
         name: 'professional',
         color: 'blue',
         icon: 'vipcard'
-      },
-      // { title: '列表', name: 'contact', color: 'purple', icon: 'list' },
-      // { title: '卡片', name: 'contact', color: 'mauve', icon: 'newsfill' }
+      }
     ],
     list: [{
       title: '联系招生组',

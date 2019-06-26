@@ -1,37 +1,8 @@
 // miniprogram/pages/brochures.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
   downloadPDF:function(){
     wx.downloadFile({
-      url: 'http://zs.scu.edu.cn/20190514.pdf',
+      url: 'https://7363-scu-undergraduate-tu0da-1259519748.tcb.qcloud.la/Admissionsattachment.pdf?sign=8312831978d07bee699456f52c40defb&t=1561537675',
       success: function (res) {
         const filePath = res.tempFilePath
         wx.openDocument({
@@ -42,40 +13,5 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
