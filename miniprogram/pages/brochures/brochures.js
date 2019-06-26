@@ -31,7 +31,7 @@ Page({
 
   downloadPDF:function(){
     wx.downloadFile({
-      url: 'http://zs.scu.edu.cn/20190514.pdf',
+      url: 'https://t.cn/AipmCJgj',
       success: function (res) {
         const filePath = res.tempFilePath
         wx.openDocument({

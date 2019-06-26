@@ -4,5 +4,6 @@
     "l-card": "/dist/card/index",
     "l-icon": "/dist/icon/index",
     "l-tag": "/dist/tag/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }

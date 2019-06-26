@@ -1,7 +1,3 @@
-<l-notice-bar show="{{true}}" close="{{true}}" front-icon-name="notification" type="roll"  speed="2000">
-  热烈欢迎各位新同学加入川大大家庭！
-</l-notice-bar>
-
 <view class="content-title">
   <view class="content-name" style="font-size:42rpx;font-weight:bold;color:red">四川大学2019年普通类本科招生章程</view>
   <view class="content-line" style="width:30rpx"></view>

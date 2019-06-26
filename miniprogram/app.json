@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/brochures/brochures",
     "pages/message/message",
     "pages/response/response",
@@ -22,28 +23,22 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/brochures/brochures",
-        "text": "招生简章",
+        "pagePath": "pages/index/index",
+        "text": "首页",
         "iconPath": "/images/home.png",
         "selectedIconPath": "/images/home_selected.png"
-      },
-      {
-        "pagePath": "pages/professional/professional",
-        "text": "招生专业",
-        "iconPath": "/images/enroll.png",
-        "selectedIconPath": "/images/enroll_selected.png"
-      },
-      {
-        "pagePath": "pages/message/message",
-        "text": "报考咨询",
-        "iconPath": "/images/message.png",
-        "selectedIconPath": "/images/message_selected.png"
       },
       {
         "pagePath": "pages/contact/contact",
         "text": "联系招生组",
         "iconPath": "/images/call.png",
         "selectedIconPath": "/images/call_selected.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "报考咨询",
+        "iconPath": "/images/message.png",
+        "selectedIconPath": "/images/message_selected.png"
       },
       {
         "pagePath": "pages/mine/mine",

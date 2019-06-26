@@ -114,6 +114,13 @@ Page({
     })
   },
 
+  onPullDownRefresh: function () {
+    var that = this;
+    that.getData();
+    wx.stopPullDownRefresh();
+  },
+
+
   displayMessages:function (that){
 
     console.log(that.data.openid)

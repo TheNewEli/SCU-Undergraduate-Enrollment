@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "l-loadmore": "/dist/loadmore/index",
+    "l-notice-bar": "/dist/notice-bar/index"
+  }
+}
