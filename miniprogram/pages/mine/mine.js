@@ -209,7 +209,7 @@ Page({
 
     var that = this;
 
-    db.collection('students').doc(this._id).update({
+    db.collection('students').doc(that.data._id).update({
       data: {
         art_n_sicence: data.subject,
         district: data.originalAddress,
@@ -226,9 +226,17 @@ Page({
 
         if(res.stats.updated==0){
 
-          db.collection("students").doc(that._id).remove({
+          db.collection("students").doc(that.data._id).remove({
             success:function(res){
               console.log(res);
+             
+            },
+
+            fail:function(e){
+              console.log(e);
+            },
+
+            complete:function(e){
               db.collection('students').add({
                 data: {
                   art_n_sicence: data.subject,
@@ -277,7 +285,7 @@ Page({
 
   checkValid: function () {
 
-    let errorMsg;
+    let errorMsg="";
 
     var data = this.data;
 
@@ -317,7 +325,7 @@ Page({
             errorMsg = "位次错误";
             break;
         }
-        if(errorMsg.length !== 0){
+        if(errorMsg.length != 0){
           wx.showToast({
             title: errorMsg,
             icon: "none"
@@ -354,6 +362,16 @@ Page({
     
     this.checkValid();
   },
+
+  onPullDownRefresh:function(){
+
+    wx.startPullDownRefresh({
+      success:function(res){
+        console.log(res);
+      },
+    });
+  },
+
 
   onGenderChanged: function (event) {
     console.log(event);
