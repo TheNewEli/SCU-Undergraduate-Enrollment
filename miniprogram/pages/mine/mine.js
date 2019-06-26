@@ -51,50 +51,43 @@ Page({
     ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
 
-    var openid = app.globalData.openid; //用户登陆后从缓存中获取
+    // var openid = app.globalData.openid; //用户登陆后从缓存中获取
 
-    if(openid==undefined)
-    {
-      var that =this;
+    // if(openid==undefined)
+    // {
+    //   var that =this;
 
-      wx.cloud.callFunction({
-        name: 'login',
-        data: {},
-        success: res => {
-          console.log('user openid: ', res.result.openid)
-          app.globalData.openid = res.result.openid
+    //   wx.cloud.callFunction({
+    //     name: 'login',
+    //     data: {},
+    //     success: res => {
+    //       console.log('user openid: ', res.result.openid)
+    //       app.globalData.openid = res.result.openid
          
-          that.setData({
-            openid: res.result.openid
-          });
+    //       that.setData({
+    //         openid: res.result.openid
+    //       });
 
-          that.getData();
-        },
-        fail: err => {
-          console.error('[云函数] [login] 调用失败', err)
-        }
-      })
-    }
+    //       that.getData();
+    //     },
+    //     fail: err => {
+    //       console.error('[云函数] [login] 调用失败', err)
+    //     }
+    //   })
+    // }
 
-    else
-      this.getData();
+    // else {
+    //   this.setData({
+    //     openid: openid
+    //   })
+
+    //   this.getData();
+    // }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
     var openid = app.globalData.openid; //用户登陆后从缓存中获取
@@ -121,13 +114,16 @@ Page({
       })
     }
 
-    else
+    else{
+      this.setData({
+        openid:openid
+      })
+
       this.getData();
+    }
+      
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
     this.setData({
       editable:false,
@@ -135,9 +131,6 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
     this.setData({
       editable: false,
@@ -150,7 +143,7 @@ Page({
     var that = this;
 
     db.collection('students').where({
-      _openid: app.globalData.openid
+      _openid: that.data.openid
     }).get({
       success: function (res) {
         //console.log(res.data[0])
@@ -228,12 +221,12 @@ Page({
 
           db.collection("students").doc(that.data._id).remove({
             success:function(res){
-              console.log(res);
+              //console.log(res);
              
             },
 
             fail:function(e){
-              console.log(e);
+              //console.log(e);
             },
 
             complete:function(e){
