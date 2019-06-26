@@ -1,5 +1,5 @@
 <l-notice-bar show="{{true}}" close="{{true}}" front-icon-name="notification" type="roll" speed="2000">
-  热烈欢迎各位新同学加入川大大家庭！
+  欢迎各位同学报考四川大学！
 </l-notice-bar>
 <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
