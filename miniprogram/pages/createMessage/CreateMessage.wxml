@@ -10,5 +10,3 @@
     </content-card>
 <l-button bindtap="OnSubmitQuestion" type="default" size="large" shape="circle">提交问题</l-button>
 </content-title>
-
-
