@@ -68,7 +68,7 @@ Page({
 
     var openid = app.globalData.openid; //用户登陆后从缓存中获取
 
-    if (openid === undefined) {
+    if (!openid) {
       var that = this;
 
       wx.cloud.callFunction({
@@ -81,6 +81,8 @@ Page({
           that.setData({
             openid: res.result.openid
           });
+
+          console.log(res.result.openid);
 
           that.displayMessages(that);
         },
@@ -128,7 +130,7 @@ Page({
 
   displayMessages:function (that){
 
-    console.log(that.data.openid)
+    console.log(that.data.openid);
 
     db.collection("questions").where({
       _openid: that.data.openid

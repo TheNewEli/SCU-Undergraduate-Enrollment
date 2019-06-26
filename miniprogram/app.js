@@ -10,5 +10,6 @@ App({
       })
     }
     this.globalData = {}
+    wx.clearStorage();
   }
 })
