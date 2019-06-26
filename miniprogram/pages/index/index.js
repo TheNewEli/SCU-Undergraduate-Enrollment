@@ -8,23 +8,32 @@ Page({
     }, {
       id: 1,
       type: 'image',
-        url: 'https://s2.ax1x.com/2019/06/26/ZeD6Xj.jpg'
+      url: 'https://s2.ax1x.com/2019/06/26/ZeDfA0.jpg'
     }, {
       id: 2,
       type: 'image',
-        url: 'https://s2.ax1x.com/2019/06/26/ZeDfA0.jpg'
+      url: 'https://s2.ax1x.com/2019/06/26/ZereC8.jpg'
     }, {
       id: 3,
       type: 'image',
-        url: 'https://s2.ax1x.com/2019/06/26/ZereC8.jpg'
+      url: 'https://s2.ax1x.com/2019/06/26/ZeD6Xj.jpg'
     }, {
       id: 4,
       type: 'image',
-        url: 'https://s2.ax1x.com/2019/06/26/ZeyzCV.jpg'
+      url: 'https://s2.ax1x.com/2019/06/26/ZeyzCV.jpg'
     }],
-    elements: [
-      { title: '招生简章', name: 'brochures', color: 'cyan', icon: 'formfill' },
-      { title: '招生专业 ', name: 'professional', color: 'blue', icon: 'vipcard' },
+    elements: [{
+        title: '招生简章',
+        name: 'brochures',
+        color: 'cyan',
+        icon: 'formfill'
+      },
+      {
+        title: '招生专业 ',
+        name: 'professional',
+        color: 'blue',
+        icon: 'vipcard'
+      },
       // { title: '列表', name: 'contact', color: 'purple', icon: 'list' },
       // { title: '卡片', name: 'contact', color: 'mauve', icon: 'newsfill' }
     ],
@@ -43,7 +52,7 @@ Page({
       DotStyle: e.detail.value
     })
   },
-  toTab:function(e){
+  toTab: function(e) {
     console.log(e);
     wx.switchTab({
       url: '../contact/contact'
