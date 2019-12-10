@@ -10,3 +10,58 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-cly1{text-align:left;vertical-align:middle}
+.tg .tg-nrix{text-align:center;vertical-align:middle}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-nrix" colspan="3">OMC-ECN Issue Report from</th>
+  </tr>
+  <tr>
+    <td class="tg-nrix" rowspan="4">User Info</td>
+    <td class="tg-cly1">Username</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">SOEID</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">Roles</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">Email</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-nrix" rowspan="3">Basic Issue Info</td>
+    <td class="tg-cly1">Occurrence Date</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">Occurrence Navigation</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">Issue Type</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-nrix" rowspan="3">Detailed Info</td>
+    <td class="tg-cly1">Actions Before Issue Occur</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">Is Issue Reproduciable</td>
+    <td class="tg-cly1"></td>
+  </tr>
+  <tr>
+    <td class="tg-cly1">Detailed Description</td>
+    <td class="tg-cly1"></td>
+  </tr>
+</table>
